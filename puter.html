@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Chatbot</title>
+
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+    crossorigin="anonymous"
+    />
+
+    <link href = "styles.css" rel = "stylesheet" />
+  </head>
+
+  <body>
+    <div class = "navbar navbar-expand-lg">
+      <div class = "container-fluid">
+        <ul class = "navbar-nav ms-auto">
+          <li class = "nav-item">
+            <a class = "nav-link active" aria-current = "page" href = "puter.html">Chat</a>
+          </li>
+          <li class = "nav-item">
+            <a class = "nav-link" href = "imgGen.html">Image Generator</a>
+          </li>
+      </ul>
+      </div>
+    </div>
+
+    <h1>Chat with Intellibank Chatbot</h1>
+
+    <div id="chat">
+      <div><em>Bot: Hello! Ask me anything.</em></div>
+    </div>
+
+    <input type="text" id="messageInput" placeholder="Type your message..." />
+    <button onclick="sendMessage()">Send</button>
+
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+      function sendMessage() {
+        const input = document.getElementById('messageInput');
+        const chat = document.getElementById('chat');
+        const userText = input.value.trim();
+
+        if (userText === '') return;
+
+        // Show user message
+        const userMsg = document.createElement('div');
+        userMsg.innerHTML = '<strong class="user">You:</strong> ' + userText;
+        chat.appendChild(userMsg);
+
+        // Clear input
+        input.value = '';
+
+        // Call puter AI
+        puter.ai.chat(userText)
+          .then(response => {
+            const botMsg = document.createElement('div');
+            botMsg.innerHTML = '<strong class="bot">Bot:</strong> ' + response;
+            chat.appendChild(botMsg);
+            chat.scrollTop = chat.scrollHeight; // Auto scroll
+          })
+          .catch(err => {
+            const errorMsg = document.createElement('div');
+            errorMsg.innerHTML = '<strong class="bot">Error:</strong> ' + err;
+            chat.appendChild(errorMsg);
+          });
+      }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoA6DQDk9Q4l1Q1Zt6a2QpztNJqQF5rGII0yAnsW+7Bv1WTR"
+      crossorigin="anonymous"></script>
+
+  </body>
+</html>
