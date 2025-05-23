@@ -53,7 +53,7 @@
                     imageBox.appendChild(imageElement);
                 })
                 .catch(error => {
-                    imageBox.innerHTML = '<div class="text-danger">Error generating image.</div>';
+                    imageBox.innerHTML = '<div class="text-danger">Error generating image. It is from the server side, not my fault.</div>';
                     console.error('Error generating image:', error);
                 });
         }
