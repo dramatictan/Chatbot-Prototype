@@ -36,31 +36,31 @@
     </div>
 
     <input type="text" id="messageInput" placeholder="Type your message..." />
-    <button onclick="sendMessage()">Send</button>
+    <button onclick="sendMessage()">Send</button> <!-- Call the function -->
 
     <script src="https://js.puter.com/v2/"></script>
     <script>
       function sendMessage() {
-        const input = document.getElementById('messageInput');
-        const chat = document.getElementById('chat');
-        const userText = input.value.trim();
+        const input = document.getElementById('messageInput'); // Get the input field
+        const chat = document.getElementById('chat');  
+        const userText = input.value.trim(); // Get the user input and trim whitespace
 
-        if (userText === '') return;
-
+        if (userText === '') return; // Check if input is empty
+ 
         // Show user message
-        const userMsg = document.createElement('div');
-        userMsg.innerHTML = '<strong class="user">You:</strong> ' + userText;
-        chat.appendChild(userMsg);
+        const userMsg = document.createElement('div'); // Create a new div for the user message
+        userMsg.innerHTML = '<strong class="user">You:</strong> ' + userText; // InnerHTML is used to set the content
+        chat.appendChild(userMsg); // add the userMsg into the chat box
 
         // Clear input
-        input.value = '';
+        input.value = ''; // Once user sends the message, clear the input field
 
         // Call puter AI
-        puter.ai.chat(userText)
+        puter.ai.chat(userText) // Process the user text
           .then(response => {
-            const botMsg = document.createElement('div');
-            botMsg.innerHTML = '<strong class="bot">Bot:</strong> ' + response;
-            chat.appendChild(botMsg);
+            const botMsg = document.createElement('div'); // Create a new div for the bot message
+            botMsg.innerHTML = '<strong class="bot">Bot:</strong> ' + response; 
+            chat.appendChild(botMsg); // Add the bot message into the chat box
             chat.scrollTop = chat.scrollHeight; // Auto scroll
           })
           .catch(err => {
