@@ -2,6 +2,11 @@ body {
     font-family: Arial, sans-serif;
     padding: 20px;
 }
+
+html, body {
+    height: 100%;
+}
+
 #chat {
     border: 1px solid #ccc;
     padding: 10px;
