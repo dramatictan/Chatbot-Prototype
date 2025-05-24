@@ -40,11 +40,6 @@ button {
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.3s;
 
-    text-align: center;      /* Center text horizontally */
-    display: flex;           /* Enable flexbox */
-    align-items: center;     /* Center text vertically */
-    justify-content: center; /* Center text horizontally */
-
     width: 80px;
     float: left;
     margin-top: 10px;
@@ -65,16 +60,13 @@ input {
     border: 1px solid #ccc;
     padding: 10px;
     height: 250px;      /* smaller height */
-    width: 1500px;       /* set a smaller width */
+    width: 1510px;       /* set a smaller width */
 
     overflow-y: auto;
     background: #fff;   /* optional: white background */
     border-radius: 8px; /* optional: rounded corners */
 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* optional: shadow */
-
-    margin: 0, auto; /* center the box */
-    margin-left: 10px;
+    margin: 0 auto 10px 10px; /* center horizontally, spacing below */
     font-size: 16px;
 }
 
