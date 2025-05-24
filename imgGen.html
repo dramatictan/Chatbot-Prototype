@@ -36,10 +36,16 @@
       </div>
     </nav>
 
-    <h1>Generate images with Intellibank</h1>
+    <h1 style = "margin-left: 10px;">Generate images with Intellibank</h1>
     <div id="imageBox" class="mx-auto my-3" style="max-width: 100%; width: 600px;"></div>
-    <input type="text" id="messageInput" placeholder="Type something..." />
+    <input type="text" id="messageInput" placeholder="What would you like to see?" />
     <button onclick="generateImages()">Generate</button>
+
+    <footer class="mt-auto py-3 bg-dark text-center">
+      <p class="m-0 py-0 px-4">
+        Created by Tan Guan Ying (2025)
+      </p>
+    </footer>
 
     <script src="https://js.puter.com/v2/"></script>
     <script>
@@ -60,7 +66,7 @@
                     imageBox.appendChild(imageElement); // Append the generated image to the image box 
                 })
                 .catch(error => {
-                    imageBox.innerHTML = '<div class="text-danger">Error generating image. It is from the server side, not my fault.</div>';
+                    imageBox.innerHTML = '<div class="text-danger">Error generating image.</div>';
                     console.error('Error generating image:', error);
                 });
         }

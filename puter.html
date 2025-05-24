@@ -36,7 +36,7 @@
       </div>
     </nav>
 
-    <h1>Chat with Intellibank</h1>
+    <h1 style = "margin-left: 10px;">Chat with Intellibank</h1>
 
     <div id="chat">
       <div><em>Bot: Hello! Ask me anything.</em></div>
@@ -45,11 +45,20 @@
     <input type="text" id="messageInput" placeholder="Type your message..." />
     <button onclick="sendMessage()">Send</button> <!-- Call the function -->
 
+    <footer class="mt-auto py-3 bg-dark text-center">
+      <p class="m-0 py-0 px-4">
+        Created by Tan Guan Ying (2025)
+      </p>
+    </footer>
+
     <script src="https://js.puter.com/v2/"></script>
     <script>
       function sendMessage() {
         const input = document.getElementById('messageInput'); // Get the input field
-        const chat = document.getElementById('chat');  
+        const chat = document.getElementById('chat'); // refers to chat box
+
+        chat.classList.add('chat-container'); // Add class to chat container for styling
+
         const userText = input.value.trim(); // Get the user input and trim whitespace
 
         if (userText === '') return; // Check if input is empty
@@ -77,7 +86,7 @@
           });
       }
     </script>
-    
+
     <script
         src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
